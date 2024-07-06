@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feast Fusion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <header style="border-bottom-left-radius: 20px;border-bottom-right-radius: 20px;box-shadow: 50%;">
+        <div class="logo" style="padding-left: 30px;padding-top: 5px;">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Your Startup Logo" style="border-radius: 7px;">
+            <nav>
+                <ul style="padding-top: 10px;padding-bottom: 7px;">
+                    <li><a href="#about" style="font-size: larger;">About Us </a></li>
+                    <li><a href="#products"style="font-size: larger;">Services</a></li>
+                    <li><a href="#contact" style="font-size: larger;">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" style="margin-top: 50px; border-radius: 20px;margin-left: 40px;margin-right: 40px;">
+        <div class="hero-content">
+            <h1>Feast Fusion</h1>
+            <p><b>Foodie's Paradise in Your Pocket</b></p>
+            <a href="{{ url_for('recommend_ui') }}" class="cta-button">Let's find you a Recipe!</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 style="text-align: center;">About Us</h2>
+            <p>
+                At the core of our implementation is a sophisticated algorithm that analyzes user-provided ingredient data
+                and matches it with our extensive recipe database. Users will enter the ingredients available in their
+                kitchen through a user-friendly interface. The system will also accommodate dietary preferences and
+                restrictions. The algorithm will process the input and intelligently search through the recipe database,
+                identifying recipes that precisely match the ingredients provided. Based on the processed data, the system
+                will generate a list of recipe recommendations for the user. The recipes will be ranked by relevance and
+                may include suggestions for ingredient substitutions. Users will have the flexibility to explore the
+                recommended recipes, view detailed cooking instructions, and save their favorite recipes for future
+                reference.
+            </p>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <h2 style="text-align: center;">Services</h2>
+            <div class="product">
+                <a href="{{ url_for('recommend_ui') }}">
+                    <img src="{{ url_for('static', filename='chef.jpg') }}" alt="Product 1" style="border-radius: 35px;">
+                </a>
+                <h3>Make food from available ingredients</h3>
+                <p>
+                    Are you tired of staring at a pile of ingredients in your kitchen, wondering what delicious meal you
+                    can create with them? Look no further! Feast Fusion is your culinary companion, designed to help you
+                    turn those available ingredients into mouthwatering masterpieces.
+                </p>
+            </div>
+            <div class="product">
+                <img src="{{ url_for('static', filename='foodblog.jpg') }}" alt="Product 2" style="border-radius: 35px;">
+                <h3>Recipe Blogs</h3>
+                <p>Read and Write Blogs about your favorite recipes and share them with other foodies.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or inquiries, please feel free to contact us.</p>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit" class="cta-button">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Feast Fusion. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
+

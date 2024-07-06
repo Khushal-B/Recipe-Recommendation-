@@ -1,0 +1,46 @@
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import linear_kernel
+
+df_recipes = pd.read_csv("C:/Users/utkarsh upase/Desktop/my folder/minip-v/archive/recipes.csv")
+
+tfidf = TfidfVectorizer(stop_words="english")
+
+df_recipes['ingredients'] = df_recipes['ingredients'].fillna("")
+
+tfidf_matrix = tfidf.fit_transform(df_recipes['ingredients'])
+
+cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
+
+recommended_recipes_set = set()
+
+
+
+def get_recommendations(user_ingredients):
+    user_tfidf = tfidf.transform([" ".join(user_ingredients)])
+    
+    user_cosine_sim = linear_kernel(user_tfidf, tfidf_matrix).flatten()
+    
+    recipe_indices = user_cosine_sim.argsort()[::-1]
+
+    data =[]
+    
+    for idx in recipe_indices:
+        # item = []
+        recipe_name = df_recipes['recipe_name'].iloc[idx]
+        recipe_img= df_recipes['img_src'].iloc[idx]
+        
+        if recipe_name not in recommended_recipes_set:
+            recommended_recipes_set.add(recipe_name)
+            data.append([recipe_name,recipe_img])
+            # print(f"{idx}   {recipe_name}  {recipe_img}")
+            
+        if len(recommended_recipes_set) >= 10:
+            break
+    
+    return data
+
+user_input = input("Enter the ingredients you have (comma-separated, valid): ")
+user_ingredients = [ingredient.strip() for ingredient in user_input.split(",")]
+
+get_recommendations(user_ingredients)
