@@ -113,7 +113,6 @@ h2 {
 .product p {
     font-size: 16px;
     color: #000000;
-
 }
 
 footer {
@@ -147,6 +146,15 @@ textarea {
     font-size: 16px;
 }
 
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cda039;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
 button[type="submit"] {
     background-color: #0077b6;
     color: #ffffff;
@@ -160,6 +168,7 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #005678;
 }
+
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
     header {
@@ -171,12 +180,12 @@ button[type="submit"]:hover {
         margin-top: 10px;
         flex-direction: column;
         align-items: center;
-        color: #000000
+        color: #000000;
     }
 
     nav ul li {
         margin: 10px 0;
-        color: #000000
+        color: #000000;
     }
 
     .hero-content h1 {
@@ -206,7 +215,6 @@ button[type="submit"]:hover {
 @media screen and (min-width: 1200px) {
     /* Add larger screen-specific styles here */
 }
-/* ... (your existing CSS rules) ... */
 
 header {
     background-color: rgba(255, 255, 255, 0.7); /* Use rgba with an alpha value (0.7) */
@@ -217,7 +225,6 @@ header {
     padding: 5px 10px; /* Adjust the padding for spacing */
 }
 
-
 .logo {
     margin: 0; /* Reset margin to zero */
 }
@@ -227,13 +234,13 @@ header {
     height: auto;
 }
 
-/* ... (the rest of your CSS rules) ... */
 .product img {
     max-width: 100%; /* Ensure the image doesn't exceed its container */
     height: auto; /* Maintain the image's aspect ratio */
     width: 500px; /* Set the desired width */
     height: 300px; /* Set the desired height */
 }
+
 .btn-secondary {
     background-color: #000000;
     color: white;
@@ -247,3 +254,4 @@ header {
 .btn-secondary:hover {
     background-color: #0056b3;
 }
+
